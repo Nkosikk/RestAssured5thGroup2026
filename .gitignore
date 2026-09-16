@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
-!**/src/Tests.test/**/target/
+!**/src/Tests.adminLoginTest/**/target/
 .kotlin
 .idea/
 ### IntelliJ IDEA ###
@@ -30,7 +30,7 @@ allure-results/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
-!**/src/Tests.test/**/build/
+!**/src/Tests.adminLoginTest/**/build/
 
 ### VS Code ###
 .vscode/

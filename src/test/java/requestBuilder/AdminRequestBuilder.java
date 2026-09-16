@@ -8,11 +8,9 @@ import static Common.Paths.BASE_URL;
 
 public class AdminRequestBuilder {
 
-    static public String adminUserName = "admin@gmail.com";
-    static public String adminPassword = "@12345678";
     static public String adminToken;
 
-    public static Response adminLoginRequest() {
+    public static Response adminLoginRequest(String email, String password) {
 
         String apiPath = "/login";
 
@@ -20,11 +18,15 @@ public class AdminRequestBuilder {
                 baseUri(BASE_URL).
                 basePath(apiPath).
                 header("Content-Type","application/json").
-                body(UserPayload.userLoginPayload(adminUserName, adminPassword)).
+                body(UserPayload.userLoginPayload(email, password)).
                 when().
                 post().
                 then().
                 extract().response();
+
+        adminToken = response.jsonPath().getString("data.token");
+
+        System.out.println(adminToken);
 
         return response;
     }
