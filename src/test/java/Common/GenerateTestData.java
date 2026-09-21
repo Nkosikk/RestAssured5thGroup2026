@@ -7,10 +7,11 @@ public class GenerateTestData {
 
     static Faker faker = new Faker();
 
-    public String randomName = faker.address().country();
+    public String firstName = faker.name().firstName();
+    public String lastName = faker.name().lastName();
+    public String email = firstName + "." + lastName + "@gmail.com";
+    public String password = faker.internet().password(8, 10, true, true, true);
+    public String confirmPassword = password;
 
-    @Test
-    public void print(){
-        System.out.println("Random Name: " + randomName);
-    }
+
 }
