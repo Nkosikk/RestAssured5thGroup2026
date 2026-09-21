@@ -3,18 +3,20 @@ package payloadBuilder;
 import com.google.gson.JsonObject;
 import org.testng.annotations.Test;
 
+import static Common.GenerateTestData.*;
+
 public class PayloadBuilder {
 
 
 
     public static JsonObject createUserPayload() {
         JsonObject userObject = new JsonObject();
-        userObject.addProperty("firstName", "Nkosi");
-        userObject.addProperty("lastName", "Ndosi");
-        userObject.addProperty("groupId", "0321f54a-64e2-4dbf-acf6-ab9614738149");
-        userObject.addProperty("email", "nkosicele1@gmail.com");
-        userObject.addProperty("password", "@12345678");
-        userObject.addProperty("confirmPassword", "@12345678");
+        userObject.addProperty("firstName", firstName);
+        userObject.addProperty("lastName", lastName);
+        userObject.addProperty("groupId", "f552e054-8b24-41c2-a0ce-24018a205783");
+        userObject.addProperty("email", email);
+        userObject.addProperty("password", password);
+        userObject.addProperty("confirmPassword", confirmPassword);
 
         return userObject;
     }
