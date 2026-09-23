@@ -18,4 +18,13 @@ public class PayloadBuilder {
         return userObject;
     }
 
+    public static JsonObject loginPayload(String userName, String password) {
+        JsonObject loginObject = new JsonObject();
+        loginObject.addProperty("email", userName);
+        loginObject.addProperty("password", password);
+        return loginObject;
+    }
+
+
+
 }

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static Common.CommonTestData.*;
 import static Common.GenerateTestData.*;
 import static Common.GenerateTestData.password;
-import static requestBuilder.RequestBuilder.createUserResponse;
+import static requestBuilder.RequestBuilder.*;
 
 public class NdosiAutomationAPITests {
 
@@ -16,6 +16,25 @@ public class NdosiAutomationAPITests {
                 assertThat().
                 statusCode(Creation_Success);
     }
+
+    @Test(dependsOnMethods = "registerUserTests")
+    public void loginAsAdminUserTests() {
+        loginrResponse(adminUsername, adminPassword).
+                then().
+                assertThat().
+                statusCode(Success_Status);
+    }
+
+    @Test(dependsOnMethods = "loginAsAdminUserTests")
+    public void approveUserTests() {
+        approveUser().
+                then().
+                assertThat().
+                statusCode(Success_Status);
+    }
+
+
+
 
     @Test()
     public void registerUserWithDifferentPasswordTests() {
@@ -39,6 +58,8 @@ public class NdosiAutomationAPITests {
                 assertThat().
                 statusCode(badRequest);
     }
+
+
 
 
 }
