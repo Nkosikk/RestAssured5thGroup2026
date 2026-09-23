@@ -31,4 +31,14 @@ public class NdosiAutomationAPITests {
                 assertThat().
                 statusCode(badRequest);
     }
+
+    @Test
+    public void registerUserWithIncorrectGroupIdTests() {
+        createUserResponse(firstName, lastName, email, password, confirmPassword, groupId+000).
+                then().
+                assertThat().
+                statusCode(badRequest);
+    }
+
+
 }
