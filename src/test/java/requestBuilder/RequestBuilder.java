@@ -52,7 +52,6 @@ public class RequestBuilder {
                 then().
                 log().all().
                 extract().response();
-        token = response.jsonPath().getString("data.token");
         return response;
     }
 }
