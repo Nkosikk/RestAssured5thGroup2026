@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
-!**/src/test/**/target/
+!**/src/Tests.adminLoginTest/**/target/
 .kotlin
 .idea/
 ### IntelliJ IDEA ###
@@ -21,7 +21,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+allure-results/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -30,7 +30,7 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
-!**/src/test/**/build/
+!**/src/Tests.adminLoginTest/**/build/
 
 ### VS Code ###
 .vscode/
