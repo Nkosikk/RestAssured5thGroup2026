@@ -47,6 +47,7 @@ public class RequestBuilder {
         Response response = given().
                 when().
                 contentType(contentType).
+                header("Authorization", "Bearer " + token).
                 log().all().
                 put(ndosi_BaseURL + "/admin/users/" + userId + "/approve").
                 then().
