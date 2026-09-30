@@ -198,6 +198,12 @@ allure generate allure-results --clean -o allure-report
 allure open allure-report
 ```
 
+### Pipeline artifacts
+
+Every GitHub Actions run uploads the Surefire/TestNG reports and raw Allure results as a `test-reports-<run-number>-<attempt>` artifact. The upload uses `if: always()`, so reports remain available when tests fail.
+
+To download a report, open the workflow run on the repository's **Actions** tab and select the artifact under **Artifacts**. Extract it, open `target/surefire-reports/index.html` directly, or generate an Allure report from the downloaded `allure-results` directory.
+
 ## Framework design
 
 ### Request flow
@@ -254,6 +260,7 @@ The workflow in `.github/workflows/maven.yml` runs on every push and pull reques
 2. Installs Temurin JDK 21.
 3. Enables Maven dependency caching.
 4. Runs `mvn clean test` on Ubuntu.
+5. Uploads Surefire/TestNG and Allure results as a downloadable artifact retained for 14 days.
 
 Workflow runs are available on the repository's **Actions** tab.
 
